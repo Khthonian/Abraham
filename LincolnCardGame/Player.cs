@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LincolnCardGame
+﻿namespace LincolnCardGame
 {
-    class Player
+    public class Player
     {
+        public int playerWins;
+        public int PlayerWin()
+        {
+            playerWins += 1;
+            return playerWins;
+        }       
     }
 }

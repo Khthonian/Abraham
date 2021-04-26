@@ -7,6 +7,7 @@ namespace LincolnCardGame
         static void Main(string[] args)
         {
             // Initialise the app with a fresh deck for the player
+            Console.Title = "Abraham, the Lincoln Card Game";
             Deck deck = new Deck();
             while (true)
             {

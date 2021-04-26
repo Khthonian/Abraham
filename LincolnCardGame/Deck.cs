@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace LincolnCardGame
 {
-    public class Deck : Card
+    public class Deck : Game
 
     {
         // Add random function, to be used later when shuffling
@@ -13,8 +13,10 @@ namespace LincolnCardGame
         public List<string> Suits = new List<string> { "♦", "♥", "♣", "♠" };
         // Create a string list of all the ranks in a standard deck of 52 french style playing cards
         public List<string> Ranks = new List<string> { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+        
         // Control the deck with an automatic property
         public Stack<Card> NewDeck { get; set; }
+                
         public void FreshDeck()
         {
             // Deck is set as a brand new stack
@@ -107,12 +109,9 @@ namespace LincolnCardGame
         protected List<string> Deal()
         {
             var DealtCards = new List<string>();
-            Console.WriteLine("I have dealt you:");
             for (int i = 0; i < 10; i++)
             {
-                var DealtHand = $"{NewDeck.Peek().Rank} of {NewDeck.Peek().Suit}\n";
-                Console.WriteLine(DealtHand);
-                DealtCards.Add(DealtHand);
+                DealtCards.Add($"{NewDeck.Peek().Rank} of {NewDeck.Peek().Suit}\n");
                 NewDeck.Pop();                
             } return DealtCards;            
         }
@@ -126,7 +125,9 @@ namespace LincolnCardGame
             {
                 case "p":
                     Game PvP = new Game();
-                    PvP.TwoPlayer();
+                    List<string> playerOneHand = Deal();
+                    List<string> playerTwoHand = Deal();
+                    PvP.TwoPlayer(playerOneHand, playerTwoHand);
                     break;
                 case "c":
                     Game PvCPU = new Game();
@@ -136,13 +137,6 @@ namespace LincolnCardGame
                     Game();
                     break;
             }
-                        
-            
-            List<string> playerOneHand = Deal();
-            List<string> playerTwoHand = Deal();
-
-            
-            
-        }
+        }    
     }
 }
