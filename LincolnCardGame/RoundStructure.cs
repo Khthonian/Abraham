@@ -69,6 +69,7 @@ namespace LincolnCardGame
 
         public void RoundThree(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
         {
+            CheckGameWinner(playerOneName, playerTwoName);
             if (playerOneID.playerTurn == true)
             {
                 // Write out the structure for the second round
