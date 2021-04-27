@@ -38,6 +38,7 @@ namespace LincolnCardGame
         public void FiveRounds(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
         {
             RoundOne(playerOne, playerTwo, playerOneName, playerTwoName);
+            RoundTwo(playerOne, playerTwo, playerOneName, playerTwoName);
         }
     }
 }
