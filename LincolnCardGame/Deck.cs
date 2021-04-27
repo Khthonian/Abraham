@@ -51,7 +51,7 @@ namespace LincolnCardGame
                         Game PvP = new Game();
                         List<string> playerOneHand = Deal();
                         List<string> playerTwoHand = Deal();
-                        PvP.InitiateTwoPlayer(playerOneHand, playerTwoHand);
+                        PvP.InitiateGame(playerOneHand, playerTwoHand);
                         break;
                     case "s":
                         Shuffle();

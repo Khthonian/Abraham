@@ -3,18 +3,16 @@
     public class Player
     {
         public int playerWins;
-        public int playerTurn;
-        public int PlayerWin()
+        public bool playerTurn;
+        public void PlayerWin()
         {
             playerWins += 1;
-            playerTurn = 1;
-            return playerWins;
+            playerTurn = true;
         }
 
-        public int PlayerLose()
+        public void PlayerLose()
         {
-            playerTurn = 0;
-            return playerTurn;
+            playerTurn = false;            
         }
     }
 }

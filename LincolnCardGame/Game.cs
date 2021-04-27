@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace LincolnCardGame
 {
-    public class Game : GameSystem
+    public class Game : RoundStructure
     {
-        public void InitiateTwoPlayer(List<string> playerOneHand, List<string> playerTwoHand)
+        public void InitiateGame(List<string> playerOneHand, List<string> playerTwoHand)
         {
             // Ask the players for their names
             string playerOneName;
