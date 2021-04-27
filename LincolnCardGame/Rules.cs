@@ -1,8 +1,10 @@
-﻿namespace LincolnCardGame
+﻿using System;
+
+namespace LincolnCardGame
 {
     public class Rules
     {
-        public static int PlayerScore(string playedCard)
+        protected static int PlayerScore(string playedCard)
         {
             // Evaluate the score for each individual card selected
             int playerScore = 0;
@@ -87,10 +89,13 @@
                     playerScore = 14;
                     break;
                 default:
-                    PlayerScore(playedCard);
-                    break;
+                    Console.WriteLine("You have entered a false value and shall suffer a reduced point penalty");
+                    playerScore = 3;
+                    break;                
             }
             return playerScore;
+            
+            
         }
 
         public void DrawnRound()

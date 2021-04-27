@@ -39,21 +39,5 @@ namespace LincolnCardGame
         {
             RoundOne(playerOne, playerTwo, playerOneName, playerTwoName);
         }
-
-        public void RoundOne(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
-        {
-            Console.WriteLine("LINCOLN - ROUND 1");
-            Console.WriteLine();
-            Console.WriteLine(playerOneName.ToUpper());
-            string firstVerifyOne = CardRequest(playerOne);
-            string secondVerifyOne = CardRequest(playerOne);
-            int tallyOne = PlayerTally(firstVerifyOne, secondVerifyOne);
-            Console.WriteLine(playerTwoName.ToUpper());
-            string firstVerifyTwo = CardRequest(playerTwo);
-            string secondVerifyTwo = CardRequest(playerTwo);
-            int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
-            EvaluateWinner(tallyOne, tallyTwo, playerOneName, playerTwoName);
-        } 
-        
     }
 }

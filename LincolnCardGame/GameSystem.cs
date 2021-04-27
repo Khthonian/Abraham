@@ -9,6 +9,24 @@ namespace LincolnCardGame
         Player playerOneID = new Player();
         Player playerTwoID = new Player();
 
+        public void RoundOne(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
+        {
+            GameSystem game = new GameSystem();
+            
+            // Write out the structure for the first round
+            Console.WriteLine("LINCOLN - ROUND 1");
+            Console.WriteLine();
+            Console.WriteLine(playerOneName.ToUpper());
+            string r1firstVerifyOne = CardRequest(playerOne);
+            string r1secondVerifyOne = CardRequest(playerOne);
+            int r1tallyOne = PlayerTally(r1firstVerifyOne, r1secondVerifyOne);
+            Console.WriteLine(playerTwoName.ToUpper());
+            string r1firstVerifyTwo = CardRequest(playerTwo);
+            string r1secondVerifyTwo = CardRequest(playerTwo);
+            int r1tallyTwo = PlayerTally(r1firstVerifyTwo, r1secondVerifyTwo);
+            game.EvaluateWinner(r1tallyOne, r1tallyTwo, playerOneName, playerTwoName);
+        }
+
         protected void EvaluateWinner(int playerOne, int playerTwo, string playerOneName, string playerTwoName)
         {
             int highestScore = Math.Max(playerOne, playerTwo);
@@ -42,34 +60,26 @@ namespace LincolnCardGame
         public static string CardRequest(List<string> playerHand)
         {
             // Ask the user to input a card they would like to use
-            Console.Write("Please enter your chosen card: ");
+            Console.WriteLine("Please enter your chosen card: ");
             string chosen = Console.ReadLine();
-            string chosenVerify = CardVerification(chosen, playerHand);
+            CardVerification(chosen, playerHand);
             playerHand.Remove(chosen);
-            return chosenVerify;
-        }
+            return chosen;
+        }        
 
-        public static string CardVerification(string card, List<string> cardList)
+        public static void CardVerification(string card, List<string> cardList)
         {
             // Verify that the card is in the list
-            string chosenVerify;
-            bool systemVerify = false;
-            while (systemVerify == false)
+            if (!cardList.Contains(card))
             {
-                if (cardList.Contains(card))
-                {
-                    Console.WriteLine("Valid card");
-                    systemVerify = true;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid card. Reinsert your chosen cards.");
-                    Console.WriteLine();
-                    CardRequest(cardList);
-                }
+                Console.WriteLine("Invalid card");
+                Console.WriteLine();          
             }
-            chosenVerify = card;
-            return chosenVerify;
+            else
+            {
+                Console.WriteLine("Valid card");
+                Console.WriteLine();
+            }
         }
 
         public static int PlayerTally(string cardOne, string cardTwo)
