@@ -31,22 +31,45 @@ namespace LincolnCardGame
 
         public void RoundTwo(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
         {
-            // Write out the structure for the second round
-            Console.WriteLine("LINCOLN - ROUND 2");
-            Console.WriteLine();
-            Console.WriteLine(playerOneName.ToUpper());
-            string r2firstVerifyOne = CardRequest(playerOne);
-            string r2secondVerifyOne = CardRequest(playerOne);
-            int r2tallyOne = PlayerTally(r2firstVerifyOne, r2secondVerifyOne);
-            Console.WriteLine($"{playerOneName}, your tally is {r2tallyOne}");
-            Console.WriteLine();
-            Console.WriteLine(playerTwoName.ToUpper());
-            string r2firstVerifyTwo = CardRequest(playerTwo);
-            string r2secondVerifyTwo = CardRequest(playerTwo);
-            int r2tallyTwo = PlayerTally(r2firstVerifyTwo, r2secondVerifyTwo);
-            Console.WriteLine($"{playerTwoName}, your tally is {r2tallyTwo}");
-            Console.WriteLine();
-            EvaluateWinner(r2tallyOne, r2tallyTwo, playerOneName, playerTwoName);
+            if (playerOneID.playerTurn == 1)
+            {
+                // Write out the structure for the second round
+                Console.WriteLine("LINCOLN - ROUND 2");
+                Console.WriteLine();
+                Console.WriteLine(playerOneName.ToUpper());
+                string r2firstVerifyOne = CardRequest(playerOne);
+                string r2secondVerifyOne = CardRequest(playerOne);
+                int r2tallyOne = PlayerTally(r2firstVerifyOne, r2secondVerifyOne);
+                Console.WriteLine($"{playerOneName}, your tally is {r2tallyOne}");
+                Console.WriteLine();
+                Console.WriteLine(playerTwoName.ToUpper());
+                string r2firstVerifyTwo = CardRequest(playerTwo);
+                string r2secondVerifyTwo = CardRequest(playerTwo);
+                int r2tallyTwo = PlayerTally(r2firstVerifyTwo, r2secondVerifyTwo);
+                Console.WriteLine($"{playerTwoName}, your tally is {r2tallyTwo}");
+                Console.WriteLine();
+                EvaluateWinner(r2tallyOne, r2tallyTwo, playerOneName, playerTwoName);
+            }
+            else if (playerTwoID.playerTurn == 1)
+            {
+                // Write out the structure for the second round
+                Console.WriteLine("LINCOLN - ROUND 2");
+                Console.WriteLine();
+                Console.WriteLine(playerTwoName.ToUpper());
+                string r2firstVerifyTwo = CardRequest(playerTwo);
+                string r2secondVerifyTwo = CardRequest(playerTwo);
+                int r2tallyTwo = PlayerTally(r2firstVerifyTwo, r2secondVerifyTwo);
+                Console.WriteLine($"{playerTwoName}, your tally is {r2tallyTwo}");
+                Console.WriteLine();
+                //
+                Console.WriteLine(playerOneName.ToUpper());
+                string r2firstVerifyOne = CardRequest(playerOne);
+                string r2secondVerifyOne = CardRequest(playerTwo);
+                int r2tallyOne = PlayerTally(r2firstVerifyTwo, r2secondVerifyTwo);
+                Console.WriteLine($"{playerOneName}, your tally is {r2tallyOne}");
+                Console.WriteLine();
+                EvaluateWinner(r2tallyOne, r2tallyTwo, playerOneName, playerTwoName);
+            }
         }
 
         protected void EvaluateWinner(int playerOne, int playerTwo, string playerOneName, string playerTwoName)
@@ -56,17 +79,19 @@ namespace LincolnCardGame
             {
                 Console.WriteLine($"{playerOneName.ToUpper()} WINS!");
                 playerOneID.PlayerWin();
+                playerTwoID.PlayerLose();
                 Console.WriteLine();
                 Console.WriteLine($"{playerOneName.ToUpper()}:");
                 Console.WriteLine(playerOneID.playerWins);
                 Console.WriteLine($"{playerTwoName.ToUpper()}:");
                 Console.WriteLine(playerTwoID.playerWins);
-                Console.WriteLine();
+                Console.WriteLine();                
             }
             else if (highestScore == playerTwo)
             {
                 Console.WriteLine($"{playerTwoName.ToUpper()} WINS!");
                 playerTwoID.PlayerWin();
+                playerOneID.PlayerLose();
                 Console.WriteLine();
                 Console.WriteLine($"{playerOneName.ToUpper()}:");
                 Console.WriteLine(playerOneID.playerWins);

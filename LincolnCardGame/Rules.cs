@@ -7,7 +7,7 @@ namespace LincolnCardGame
         protected static int PlayerScore(string playedCard)
         {
             // Evaluate the score for each individual card selected
-            int playerScore = 0;
+            int playerScore;
             switch (playedCard)
             {
                 case "2 of Diamonds":
@@ -106,14 +106,17 @@ namespace LincolnCardGame
                     Console.WriteLine("You have entered a false value and shall suffer a reduced point penalty");
                     break;                
             }
-            return playerScore;
-            
-            
+            return playerScore;            
+        }
+
+        public void CheckGameWinner()
+        {
+
         }
 
         public void DrawnRound()
         {
-
-        }
+            
+        }        
     }
 }
