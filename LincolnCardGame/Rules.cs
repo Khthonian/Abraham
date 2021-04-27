@@ -107,12 +107,7 @@ namespace LincolnCardGame
                     break;                
             }
             return playerScore;            
-        }
-
-        public void CheckGameWinner()
-        {
-
-        }
+        }        
 
         public void DrawnRound()
         {

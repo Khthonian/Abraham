@@ -5,7 +5,7 @@ namespace LincolnCardGame
 {
     public class Game : GameSystem
     {
-        public void TwoPlayer(List<string> playerOneHand, List<string> playerTwoHand)
+        public void InitiateTwoPlayer(List<string> playerOneHand, List<string> playerTwoHand)
         {
             // Ask the players for their names
             string playerOneName;
@@ -14,7 +14,7 @@ namespace LincolnCardGame
             playerOneName = Console.ReadLine();
             Console.WriteLine("\nPLAYER 2, what is your name");
             playerTwoName = Console.ReadLine();
-
+                            
             // Show the players their cards
             Console.WriteLine($"\n{playerOneName}, here are your cards:");
             foreach (string p in playerOneHand)

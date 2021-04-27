@@ -26,7 +26,7 @@ namespace LincolnCardGame
             int r1tallyTwo = PlayerTally(r1firstVerifyTwo, r1secondVerifyTwo);
             Console.WriteLine($"{playerTwoName}, your tally is {r1tallyTwo}");
             Console.WriteLine();
-            EvaluateWinner(r1tallyOne, r1tallyTwo, playerOneName, playerTwoName);
+            EvaluateWinner(r1tallyOne, r1tallyTwo, playerOneName, playerTwoName);                                   
         }
 
         public void RoundTwo(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
@@ -65,7 +65,7 @@ namespace LincolnCardGame
                 Console.WriteLine(playerOneName.ToUpper());
                 string r2firstVerifyOne = CardRequest(playerOne);
                 string r2secondVerifyOne = CardRequest(playerTwo);
-                int r2tallyOne = PlayerTally(r2firstVerifyTwo, r2secondVerifyTwo);
+                int r2tallyOne = PlayerTally(r2firstVerifyOne, r2secondVerifyOne);
                 Console.WriteLine($"{playerOneName}, your tally is {r2tallyOne}");
                 Console.WriteLine();
                 EvaluateWinner(r2tallyOne, r2tallyTwo, playerOneName, playerTwoName);
@@ -75,7 +75,12 @@ namespace LincolnCardGame
         protected void EvaluateWinner(int playerOne, int playerTwo, string playerOneName, string playerTwoName)
         {
             int highestScore = Math.Max(playerOne, playerTwo);
-            if (highestScore == playerOne)
+            if (playerOne == playerTwo)
+            {
+                Console.WriteLine("Draw");
+                //DrawnRound();
+            }
+            else if (highestScore == playerOne)
             {
                 Console.WriteLine($"{playerOneName.ToUpper()} WINS!");
                 playerOneID.PlayerWin();
@@ -98,11 +103,54 @@ namespace LincolnCardGame
                 Console.WriteLine($"{playerTwoName.ToUpper()}:");
                 Console.WriteLine(playerTwoID.playerWins);
                 Console.WriteLine();
-            }
-            else
+            }           
+        }
+
+        public void CheckGameWinner(string playerOne, string playerTwo)
+        {
+            if (playerOneID.playerWins == 3)
             {
-                Console.WriteLine("Draw");
-                //DrawnRound();
+                Console.WriteLine($"{playerOne.ToUpper()} has won");
+                Console.WriteLine();
+                Console.WriteLine("\nDo you want me to restart or do you want to exit?\nPress ENTER to restart\nInput 'E' then ENTER to exit");
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "":
+                        Program.Main();
+                        break;
+                    case "e":
+                        Console.WriteLine("Thank you for using Abraham. Goodbye.");
+                        System.Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Your input was not recognised. Returning to menu.");
+                        Program.Main();
+                        break;
+
+
+                }
+            }
+            else if (playerTwoID.playerWins == 3)
+            {
+                Console.WriteLine($"{playerTwo.ToUpper()} has won");
+                Console.WriteLine();
+                Console.WriteLine("\nDo you want me to restart or do you want to exit?\nPress ENTER to restart\nInput 'E' then ENTER to exit");
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "":
+                        Program.Main();
+                        break;
+                    case "e":
+                        Console.WriteLine("Thank you for using Abraham. Goodbye.");
+                        System.Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Your input was not recognised. Returning to menu.");
+                        Program.Main();
+                        break;
+
+
+                }
             }
         }
 
