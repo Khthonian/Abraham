@@ -10,7 +10,7 @@ namespace LincolnCardGame
         // Add random function, to be used later when shuffling
         private readonly Random random = new Random();
         // Create a string list of all the suits in a standard deck of 52 french-style playing cards
-        public List<string> Suits = new List<string> { "♦", "♥", "♣", "♠" };
+        public List<string> Suits = new List<string> { "Diamonds", "Hearts", "Clubs", "Spades" };
         // Create a string list of all the ranks in a standard deck of 52 french style playing cards
         public List<string> Ranks = new List<string> { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
         
@@ -48,7 +48,10 @@ namespace LincolnCardGame
                 switch (Console.ReadLine().ToLower())
                 {
                     case "":
-                        Game();
+                        Game PvP = new Game();
+                        List<string> playerOneHand = Deal();
+                        List<string> playerTwoHand = Deal();
+                        PvP.TwoPlayer(playerOneHand, playerTwoHand);
                         break;
                     case "s":
                         Shuffle();
@@ -111,32 +114,9 @@ namespace LincolnCardGame
             var DealtCards = new List<string>();
             for (int i = 0; i < 10; i++)
             {
-                DealtCards.Add($"{NewDeck.Peek().Rank} of {NewDeck.Peek().Suit}\n");
+                DealtCards.Add($"{NewDeck.Peek().Rank} of {NewDeck.Peek().Suit}");
                 NewDeck.Pop();                
             } return DealtCards;            
-        }
-
-        public void Game()
-        {
-            // Ask the user if they want to play against a computer or a another player
-            Console.WriteLine("Do you wish to play against a player or the CPU");
-            Console.WriteLine("Enter P or C respectively");
-            switch (Console.ReadLine().ToLower())
-            {
-                case "p":
-                    Game PvP = new Game();
-                    List<string> playerOneHand = Deal();
-                    List<string> playerTwoHand = Deal();
-                    PvP.TwoPlayer(playerOneHand, playerTwoHand);
-                    break;
-                case "c":
-                    Game PvCPU = new Game();
-                    PvCPU.OnePlayer();
-                    break;
-                default:
-                    Game();
-                    break;
-            }
-        }    
+        }  
     }
 }

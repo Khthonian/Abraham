@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LincolnCardGame
 {
@@ -8,73 +9,73 @@ namespace LincolnCardGame
         Player playerOneID = new Player();
         Player playerTwoID = new Player();
 
-        public int PlayerScore(string playedCard)
-        {
-            // Evaluate the score for each individual card selected
-            int playerScore = 0;
-            switch (playedCard)
-            {
-                case "2":
-                    playerScore = 2;
-                    break;
-                case "3":
-                    playerScore = 3;
-                    break;
-                case "4":
-                    playerScore = 4;
-                    break;
-                case "5":
-                    playerScore = 5;
-                    break;
-                case "6":
-                    playerScore = 6;
-                    break;
-                case "7":
-                    playerScore = 7;
-                    break;
-                case "8":
-                    playerScore = 8;
-                    break;
-                case "9":
-                    playerScore = 9;
-                    break;
-                case "10":
-                    playerScore = 10;
-                    break;
-                case "Jack":
-                    playerScore = 11;
-                    break;
-                case "Queen":
-                    playerScore = 12;
-                    break;
-                case "King":
-                    playerScore = 13;
-                    break;
-                case "Ace":
-                    playerScore = 14;
-                    break;
-                default:
-                    PlayerScore(playedCard);
-                    break;
-            }
-            return playerScore;
-        }
-
-        protected void EvaluateWinner(int playerOne, int playerTwo)
+        protected void EvaluateWinner(int playerOne, int playerTwo, string playerOneName, string playerTwoName)
         {
             int highestScore = Math.Max(playerOne, playerTwo);
             if (highestScore == playerOne)
             {
+                Console.WriteLine($"{playerOneName.ToUpper()} WINS!");
                 playerOneID.PlayerWin();
+                Console.WriteLine();
+                Console.WriteLine($"{playerOneName.ToUpper()}:");
+                Console.WriteLine(playerOneID.playerWins);
+                Console.WriteLine($"{playerTwoName.ToUpper()}:");
+                Console.WriteLine(playerTwoID.playerWins);
             }
             else if (highestScore == playerTwo)
             {
+                Console.WriteLine($"{playerTwoName.ToUpper()} WINS!");
                 playerTwoID.PlayerWin();
+                Console.WriteLine();
+                Console.WriteLine($"{playerOneName.ToUpper()}:");
+                Console.WriteLine(playerOneID.playerWins);
+                Console.WriteLine($"{playerTwoName.ToUpper()}:");
+                Console.WriteLine(playerTwoID.playerWins);
             }
             else
             {
+                Console.WriteLine("Draw");
                 //DrawnRound();
             }
+        }
+
+        public static string CardRequest(List<string> playerHand)
+        {
+            // Ask the user to input a card they would like to use
+            Console.Write("Please enter your chosen card: ");
+            string chosen = Console.ReadLine();
+            string chosenVerify = CardVerification(chosen, playerHand);
+            playerHand.Remove(chosen);
+            return chosenVerify;
+        }
+
+        public static string CardVerification(string card, List<string> cardList)
+        {
+            // Verify that the card is in the list
+            string chosenVerify;
+            bool systemVerify = false;
+            while (systemVerify == false)
+            {
+                if (cardList.Contains(card))
+                {
+                    Console.WriteLine("Valid card");
+                    systemVerify = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid card. Reinsert your chosen cards.");
+                    Console.WriteLine();
+                    CardRequest(cardList);
+                }
+            }
+            chosenVerify = card;
+            return chosenVerify;
+        }
+
+        public static int PlayerTally(string cardOne, string cardTwo)
+        {
+            int tally = PlayerScore(cardOne) + PlayerScore(cardTwo);
+            return tally;
         }
     }
 }
