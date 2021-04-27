@@ -72,7 +72,7 @@ namespace LincolnCardGame
             if (playerOneID.playerTurn == true)
             {
                 // Write out the structure for the second round
-                Console.WriteLine("LINCOLN - ROUND 2");
+                Console.WriteLine("LINCOLN - ROUND 3");
                 Console.WriteLine();
                 Console.WriteLine(playerOneName.ToUpper());
                 string firstVerifyOne = CardRequest(playerOne);
@@ -91,7 +91,7 @@ namespace LincolnCardGame
             else if (playerTwoID.playerTurn == true)
             {
                 // Write out the structure for the second round
-                Console.WriteLine("LINCOLN - ROUND 2");
+                Console.WriteLine("LINCOLN - ROUND 3");
                 Console.WriteLine();
                 Console.WriteLine(playerTwoName.ToUpper());
                 string firstVerifyTwo = CardRequest(playerTwo);
