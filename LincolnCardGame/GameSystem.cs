@@ -8,6 +8,7 @@ namespace LincolnCardGame
         // Initialise the classes for storing scores
         protected Player playerOneID = new Player();
         protected Player playerTwoID = new Player();
+        protected Random random = new Random();
         
         protected void EvaluateWinner(int playerOne, int playerTwo, string playerOneName, string playerTwoName)
         {
