@@ -4,6 +4,8 @@ namespace LincolnCardGame
 {
     public class Rules
     {
+        public bool drawnRound = false;
+
         protected static int PlayerScore(string playedCard)
         {
             // Evaluate the score for each individual card selected
@@ -102,16 +104,16 @@ namespace LincolnCardGame
                     Console.WriteLine("14 POINTS AWARDED");
                     break;
                 default:
-                    playerScore = 3;
-                    Console.WriteLine("You have entered a false value and shall suffer a reduced point penalty");
+                    playerScore = 1;
+                    Console.WriteLine("You have entered a false value and shall suffer a 1 point penalty");
                     break;                
             }
             return playerScore;            
-        }        
+        }
 
         public void DrawnRound()
         {
-            
-        }        
+            drawnRound = true;
+        }
     }
 }

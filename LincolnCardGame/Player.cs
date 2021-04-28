@@ -3,10 +3,16 @@
     public class Player
     {
         public int playerWins;
-        public bool playerTurn;
+        public bool playerTurn = true;
         public void PlayerWin()
         {
             playerWins += 1;
+            playerTurn = true;
+        }
+
+        public void PlayerWinsDraw()
+        {
+            playerWins += 2;
             playerTurn = true;
         }
 

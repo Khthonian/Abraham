@@ -69,7 +69,6 @@ namespace LincolnCardGame
 
         public void RoundThree(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
         {
-            CheckGameWinner(playerOneName, playerTwoName);
             if (playerOneID.playerTurn == true)
             {
                 // Write out the structure for the second round
@@ -100,7 +99,6 @@ namespace LincolnCardGame
                 int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
                 Console.WriteLine($"{playerTwoName}, your tally is {tallyTwo}");
                 Console.WriteLine();
-                //
                 Console.WriteLine(playerOneName.ToUpper());
                 string firstVerifyOne = CardRequest(playerOne);
                 string secondVerifyOne = CardRequest(playerTwo);

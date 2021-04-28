@@ -11,40 +11,78 @@ namespace LincolnCardGame
         // Initialise the classes for storing scores
         protected Player playerOneID = new Player();
         protected Player playerTwoID = new Player();
-
+        
         protected void EvaluateWinner(int playerOne, int playerTwo, string playerOneName, string playerTwoName)
         {
             int highestScore = Math.Max(playerOne, playerTwo);
-            /*if (playerOne == playerTwo)
+            if (drawnRound == true)
             {
-                Console.WriteLine("Draw");
-                //DrawnRound();
-            } CHANGE STATEMENT BELOW TO ELSE IF*/
-            if (highestScore == playerOne)
-            {
-                Console.WriteLine($"{playerOneName.ToUpper()} WINS!");
-                playerOneID.PlayerWin();
-                playerTwoID.PlayerLose();
-                Console.WriteLine();
-                Console.WriteLine($"{playerOneName.ToUpper()}:");
-                Console.WriteLine(playerOneID.playerWins);
-                Console.WriteLine($"{playerTwoName.ToUpper()}:");
-                Console.WriteLine(playerTwoID.playerWins);
-                Console.WriteLine();
+                if (playerOne == playerTwo)
+                {
+                    Console.WriteLine("DRAW");
+                    DrawnRound();
+                }
+                else if (highestScore == playerOne)
+                {
+                    Console.WriteLine($"{playerOneName.ToUpper()} WINS!");
+                    playerOneID.PlayerWinsDraw();
+                    playerTwoID.PlayerLose();
+                    drawnRound = false;
+                    Console.WriteLine();
+                    Console.WriteLine($"{playerOneName.ToUpper()}:");
+                    Console.WriteLine(playerOneID.playerWins);
+                    Console.WriteLine($"{playerTwoName.ToUpper()}:");
+                    Console.WriteLine(playerTwoID.playerWins);
+                    Console.WriteLine();
+                }
+                else if (highestScore == playerTwo)
+                {
+                    Console.WriteLine($"{playerTwoName.ToUpper()} WINS!");
+                    playerTwoID.PlayerWinsDraw();
+                    playerOneID.PlayerLose();
+                    drawnRound = false;
+                    Console.WriteLine();
+                    Console.WriteLine($"{playerOneName.ToUpper()}:");
+                    Console.WriteLine(playerOneID.playerWins);
+                    Console.WriteLine($"{playerTwoName.ToUpper()}:");
+                    Console.WriteLine(playerTwoID.playerWins);
+                    Console.WriteLine();
+                }
             }
-            else if (highestScore == playerTwo)
+            else if (drawnRound == false)
             {
-                Console.WriteLine($"{playerTwoName.ToUpper()} WINS!");
-                playerTwoID.PlayerWin();
-                playerOneID.PlayerLose();
-                Console.WriteLine();
-                Console.WriteLine($"{playerOneName.ToUpper()}:");
-                Console.WriteLine(playerOneID.playerWins);
-                Console.WriteLine($"{playerTwoName.ToUpper()}:");
-                Console.WriteLine(playerTwoID.playerWins);
-                Console.WriteLine();
+                if (playerOne == playerTwo)
+                {
+                    Console.WriteLine("DRAW");
+                    DrawnRound();
+                }
+                else if (highestScore == playerOne)
+                {
+                    Console.WriteLine($"{playerOneName.ToUpper()} WINS!");
+                    playerOneID.PlayerWin();
+                    playerTwoID.PlayerLose();
+                    Console.WriteLine();
+                    Console.WriteLine($"{playerOneName.ToUpper()}:");
+                    Console.WriteLine(playerOneID.playerWins);
+                    Console.WriteLine($"{playerTwoName.ToUpper()}:");
+                    Console.WriteLine(playerTwoID.playerWins);
+                    Console.WriteLine();
+                }
+                else if (highestScore == playerTwo)
+                {
+                    Console.WriteLine($"{playerTwoName.ToUpper()} WINS!");
+                    playerTwoID.PlayerWin();
+                    playerOneID.PlayerLose();
+                    Console.WriteLine();
+                    Console.WriteLine($"{playerOneName.ToUpper()}:");
+                    Console.WriteLine(playerOneID.playerWins);
+                    Console.WriteLine($"{playerTwoName.ToUpper()}:");
+                    Console.WriteLine(playerTwoID.playerWins);
+                    Console.WriteLine();
+                }
             }
         }
+    
 
         public void CheckGameWinner(string playerOne, string playerTwo)
         {
@@ -122,6 +160,12 @@ namespace LincolnCardGame
         public static int PlayerTally(string cardOne, string cardTwo)
         {
             int tally = PlayerScore(cardOne) + PlayerScore(cardTwo);
+            return tally;
+        }
+
+        public static int PlayerTally(string card)
+        {
+            int tally = PlayerScore(card);
             return tally;
         }
     }
