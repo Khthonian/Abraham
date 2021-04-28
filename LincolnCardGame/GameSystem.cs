@@ -160,16 +160,17 @@ namespace LincolnCardGame
                 // Verify the input isn't empty or null
                 while (string.IsNullOrEmpty(card))
                 {
-                    Console.WriteLine("You must enter a card name.");
+                    Console.WriteLine();
+                    Console.WriteLine("You must enter a card name. Try again:");
                     card = Console.ReadLine();
                 }
 
                 // Verify that the card is in the list
                 while (!playerHand.Contains(card))
                 {
-                    Console.WriteLine("Invalid card");
                     Console.WriteLine();
-                    CardRequest(playerHand, playerName);
+                    Console.WriteLine("Invalid card. Try again:");
+                    card = Console.ReadLine();
                 }
                 valid = true;
             }
