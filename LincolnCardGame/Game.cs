@@ -14,20 +14,6 @@ namespace LincolnCardGame
             playerOneName = Console.ReadLine();
             Console.WriteLine("\nPLAYER 2, what is your name");
             playerTwoName = Console.ReadLine();
-                            
-            // Show the players their cards
-            Console.WriteLine($"\n{playerOneName}, here are your cards:");
-            foreach (string p in playerOneHand)
-            {
-                Console.Write(p);
-                Console.WriteLine();
-            }
-            Console.WriteLine($"\n{playerTwoName}, here are your cards:");
-            foreach (string p in playerTwoHand)
-            {
-                Console.Write(p);
-                Console.WriteLine();
-            }
 
             // Begin the game
             Console.WriteLine("\nLet's begin play\n");            

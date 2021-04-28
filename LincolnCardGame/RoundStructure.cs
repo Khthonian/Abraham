@@ -11,14 +11,14 @@ namespace LincolnCardGame
             Console.WriteLine("LINCOLN - ROUND 1");
             Console.WriteLine();
             Console.WriteLine(playerOneName.ToUpper());
-            string firstVerifyOne = CardRequest(playerOne);
-            string secondVerifyOne = CardRequest(playerOne);
+            string firstVerifyOne = CardRequest(playerOne, playerOneName);
+            string secondVerifyOne = CardRequest(playerOne, playerOneName);
             int tallyOne = PlayerTally(firstVerifyOne, secondVerifyOne);
             Console.WriteLine($"{playerOneName}, your tally is {tallyOne}");
             Console.WriteLine();
             Console.WriteLine(playerTwoName.ToUpper());
-            string firstVerifyTwo = CardRequest(playerTwo);
-            string secondVerifyTwo = CardRequest(playerTwo);
+            string firstVerifyTwo = CardRequest(playerTwo, playerTwoName);
+            string secondVerifyTwo = CardRequest(playerTwo, playerTwoName);
             int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
             Console.WriteLine($"{playerTwoName}, your tally is {tallyTwo}");
             Console.WriteLine();
@@ -33,14 +33,14 @@ namespace LincolnCardGame
                 Console.WriteLine("LINCOLN - ROUND 2");
                 Console.WriteLine();
                 Console.WriteLine(playerOneName.ToUpper());
-                string firstVerifyOne = CardRequest(playerOne);
-                string secondVerifyOne = CardRequest(playerOne);
+                string firstVerifyOne = CardRequest(playerOne, playerOneName);
+                string secondVerifyOne = CardRequest(playerOne, playerOneName);
                 int tallyOne = PlayerTally(firstVerifyOne, secondVerifyOne);
                 Console.WriteLine($"{playerOneName}, your tally is {tallyOne}");
                 Console.WriteLine();
                 Console.WriteLine(playerTwoName.ToUpper());
-                string firstVerifyTwo = CardRequest(playerTwo);
-                string secondVerifyTwo = CardRequest(playerTwo);
+                string firstVerifyTwo = CardRequest(playerTwo, playerTwoName);
+                string secondVerifyTwo = CardRequest(playerTwo, playerTwoName);
                 int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
                 Console.WriteLine($"{playerTwoName}, your tally is {tallyTwo}");
                 Console.WriteLine();
@@ -52,14 +52,14 @@ namespace LincolnCardGame
                 Console.WriteLine("LINCOLN - ROUND 2");
                 Console.WriteLine();
                 Console.WriteLine(playerTwoName.ToUpper());
-                string firstVerifyTwo = CardRequest(playerTwo);
-                string secondVerifyTwo = CardRequest(playerTwo);
+                string firstVerifyTwo = CardRequest(playerTwo, playerTwoName);
+                string secondVerifyTwo = CardRequest(playerTwo, playerTwoName);
                 int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
                 Console.WriteLine($"{playerTwoName}, your tally is {tallyTwo}");
                 Console.WriteLine();
                 Console.WriteLine(playerOneName.ToUpper());
-                string firstVerifyOne = CardRequest(playerOne);
-                string secondVerifyOne = CardRequest(playerTwo);
+                string firstVerifyOne = CardRequest(playerOne, playerOneName);
+                string secondVerifyOne = CardRequest(playerOne, playerOneName);
                 int tallyOne = PlayerTally(firstVerifyOne, secondVerifyOne);
                 Console.WriteLine($"{playerOneName}, your tally is {tallyOne}");
                 Console.WriteLine();
@@ -71,18 +71,18 @@ namespace LincolnCardGame
         {
             if (playerOneID.playerTurn == true)
             {
-                // Write out the structure for the second round
+                // Write out the structure for the third round
                 Console.WriteLine("LINCOLN - ROUND 3");
                 Console.WriteLine();
                 Console.WriteLine(playerOneName.ToUpper());
-                string firstVerifyOne = CardRequest(playerOne);
-                string secondVerifyOne = CardRequest(playerOne);
+                string firstVerifyOne = CardRequest(playerOne, playerOneName);
+                string secondVerifyOne = CardRequest(playerOne, playerOneName);
                 int tallyOne = PlayerTally(firstVerifyOne, secondVerifyOne);
                 Console.WriteLine($"{playerOneName}, your tally is {tallyOne}");
                 Console.WriteLine();
                 Console.WriteLine(playerTwoName.ToUpper());
-                string firstVerifyTwo = CardRequest(playerTwo);
-                string secondVerifyTwo = CardRequest(playerTwo);
+                string firstVerifyTwo = CardRequest(playerTwo, playerTwoName);
+                string secondVerifyTwo = CardRequest(playerTwo, playerTwoName);
                 int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
                 Console.WriteLine($"{playerTwoName}, your tally is {tallyTwo}");
                 Console.WriteLine();
@@ -90,18 +90,18 @@ namespace LincolnCardGame
             }
             else if (playerTwoID.playerTurn == true)
             {
-                // Write out the structure for the second round
+                // Write out the structure for the third round
                 Console.WriteLine("LINCOLN - ROUND 3");
                 Console.WriteLine();
                 Console.WriteLine(playerTwoName.ToUpper());
-                string firstVerifyTwo = CardRequest(playerTwo);
-                string secondVerifyTwo = CardRequest(playerTwo);
+                string firstVerifyTwo = CardRequest(playerTwo, playerTwoName);
+                string secondVerifyTwo = CardRequest(playerTwo, playerTwoName);
                 int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
                 Console.WriteLine($"{playerTwoName}, your tally is {tallyTwo}");
                 Console.WriteLine();
                 Console.WriteLine(playerOneName.ToUpper());
-                string firstVerifyOne = CardRequest(playerOne);
-                string secondVerifyOne = CardRequest(playerTwo);
+                string firstVerifyOne = CardRequest(playerOne, playerOneName);
+                string secondVerifyOne = CardRequest(playerOne, playerOneName);
                 int tallyOne = PlayerTally(firstVerifyOne, secondVerifyOne);
                 Console.WriteLine($"{playerOneName}, your tally is {tallyOne}");
                 Console.WriteLine();
@@ -114,37 +114,37 @@ namespace LincolnCardGame
             CheckGameWinner(playerOneName, playerTwoName);
             if (playerOneID.playerTurn == true)
             {
-                // Write out the structure for the second round
-                Console.WriteLine("LINCOLN - ROUND 3");
-                Console.WriteLine();
-                Console.WriteLine(playerOneName.ToUpper());
-                string firstVerifyOne = CardRequest(playerOne);
-                string secondVerifyOne = CardRequest(playerOne);
-                int tallyOne = PlayerTally(firstVerifyOne, secondVerifyOne);
-                Console.WriteLine($"{playerOneName}, your tally is {tallyOne}");
+                // Write out the structure for the fourth round
+                Console.WriteLine("LINCOLN - ROUND 4");
                 Console.WriteLine();
                 Console.WriteLine(playerTwoName.ToUpper());
-                string firstVerifyTwo = CardRequest(playerTwo);
-                string secondVerifyTwo = CardRequest(playerTwo);
+                string firstVerifyTwo = CardRequest(playerTwo, playerTwoName);
+                string secondVerifyTwo = CardRequest(playerTwo, playerTwoName);
                 int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
                 Console.WriteLine($"{playerTwoName}, your tally is {tallyTwo}");
+                Console.WriteLine();
+                Console.WriteLine(playerOneName.ToUpper());
+                string firstVerifyOne = CardRequest(playerOne, playerOneName);
+                string secondVerifyOne = CardRequest(playerOne, playerOneName);
+                int tallyOne = PlayerTally(firstVerifyOne, secondVerifyOne);
+                Console.WriteLine($"{playerOneName}, your tally is {tallyOne}");
                 Console.WriteLine();
                 EvaluateWinner(tallyOne, tallyTwo, playerOneName, playerTwoName);
             }
             else if (playerTwoID.playerTurn == true)
             {
-                // Write out the structure for the second round
-                Console.WriteLine("LINCOLN - ROUND 3");
+                // Write out the structure for the fourth round
+                Console.WriteLine("LINCOLN - ROUND 4");
                 Console.WriteLine();
                 Console.WriteLine(playerTwoName.ToUpper());
-                string firstVerifyTwo = CardRequest(playerTwo);
-                string secondVerifyTwo = CardRequest(playerTwo);
+                string firstVerifyTwo = CardRequest(playerTwo, playerTwoName);
+                string secondVerifyTwo = CardRequest(playerTwo, playerTwoName);
                 int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
                 Console.WriteLine($"{playerTwoName}, your tally is {tallyTwo}");
                 Console.WriteLine();
                 Console.WriteLine(playerOneName.ToUpper());
-                string firstVerifyOne = CardRequest(playerOne);
-                string secondVerifyOne = CardRequest(playerTwo);
+                string firstVerifyOne = CardRequest(playerOne, playerOneName);
+                string secondVerifyOne = CardRequest(playerOne, playerOneName);
                 int tallyOne = PlayerTally(firstVerifyOne, secondVerifyOne);
                 Console.WriteLine($"{playerOneName}, your tally is {tallyOne}");
                 Console.WriteLine();

@@ -139,8 +139,16 @@ namespace LincolnCardGame
             }
         }
 
-        public static string CardRequest(List<string> playerHand)
+        public static string CardRequest(List<string> playerHand, string playerName)
         {
+            // Show the user their cards
+            Console.WriteLine($"\n{playerName}, here are your cards:");
+            foreach (string p in playerHand)
+            {
+                Console.Write(p);
+                Console.WriteLine();
+            }
+
             // Ask the user to input a card they would like to use
             Console.Write("Please enter your chosen card: ");
             string card = Console.ReadLine();
@@ -161,7 +169,7 @@ namespace LincolnCardGame
                 {
                     Console.WriteLine("Invalid card");
                     Console.WriteLine();
-                    CardRequest(playerHand);
+                    CardRequest(playerHand, playerName);
                 }
                 valid = true;
             }
@@ -182,6 +190,16 @@ namespace LincolnCardGame
         {
             int tally = PlayerScore(card);
             return tally;
+        }
+
+        public static void DisplayHand(List<string> playerHand, string playerName)
+        {
+            Console.WriteLine($"\n{playerName}, here are your cards:");
+            foreach (string p in playerHand)
+            {
+                Console.Write(p);
+                Console.WriteLine();
+            }
         }
     }
 }
