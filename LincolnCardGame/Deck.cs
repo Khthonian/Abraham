@@ -13,10 +13,10 @@ namespace LincolnCardGame
         public List<string> Suits = new List<string> { "Diamonds", "Hearts", "Clubs", "Spades" };
         // Create a string list of all the ranks in a standard deck of 52 french style playing cards
         public List<string> Ranks = new List<string> { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
-        
+
         // Control the deck with an automatic property
         public Stack<Card> NewDeck { get; set; }
-                
+
         public void FreshDeck()
         {
             // Deck is set as a brand new stack
@@ -119,8 +119,9 @@ namespace LincolnCardGame
             for (int i = 0; i < 10; i++)
             {
                 DealtCards.Add($"{NewDeck.Peek().Rank} of {NewDeck.Peek().Suit}");
-                NewDeck.Pop();                
-            } return DealtCards;            
-        }  
+                NewDeck.Pop();
+            }
+            return DealtCards;
+        }
     }
 }

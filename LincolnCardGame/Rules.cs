@@ -106,9 +106,9 @@ namespace LincolnCardGame
                 default:
                     playerScore = 1;
                     Console.WriteLine("You have entered a false value and shall suffer a 0 point penalty");
-                    break;                
+                    break;
             }
-            return playerScore;            
+            return playerScore;
         }
 
         public void DrawnRound()

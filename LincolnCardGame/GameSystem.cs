@@ -9,7 +9,7 @@ namespace LincolnCardGame
         protected Player playerOneID = new Player();
         protected Player playerTwoID = new Player();
         protected Random random = new Random();
-        
+
         protected void EvaluateWinner(int playerOne, int playerTwo, string playerOneName, string playerTwoName)
         {
             int highestScore = Math.Max(playerOne, playerTwo);
@@ -90,25 +90,28 @@ namespace LincolnCardGame
                 }
             }
         }
-    
+
 
         public void CheckGameWinner(string playerOne, string playerTwo)
         {
             if (playerOneID.playerWins == 3)
             {
-                Console.WriteLine($"{playerOne.ToUpper()} has won");
+                Console.WriteLine($"{playerOne.ToUpper()} HAS WON THE GAME!");
                 Console.WriteLine();
                 Console.WriteLine("\nDo you want me to restart or do you want to exit?\nPress ENTER to restart\nInput 'E' then ENTER to exit");
                 switch (Console.ReadLine().ToLower())
                 {
                     case "":
+                        Console.WriteLine();
                         Program.Main();
                         break;
                     case "e":
+                        Console.WriteLine();
                         Console.WriteLine("Thank you for using Abraham. Goodbye.");
-                        System.Environment.Exit(0);
+                        Environment.Exit(0);
                         break;
                     default:
+                        Console.WriteLine();
                         Console.WriteLine("Your input was not recognised. Returning to menu.");
                         Program.Main();
                         break;
@@ -128,7 +131,7 @@ namespace LincolnCardGame
                         break;
                     case "e":
                         Console.WriteLine("Thank you for using Abraham. Goodbye.");
-                        System.Environment.Exit(0);
+                        Environment.Exit(0);
                         break;
                     default:
                         Console.WriteLine("Your input was not recognised. Returning to menu.");

@@ -30,7 +30,7 @@ namespace LincolnCardGame
             int tallyTwo = PlayerTally(firstVerifyTwo, secondVerifyTwo);
             Console.WriteLine($"{playerTwoName}, your tally is {tallyTwo}");
             Console.WriteLine();
-            EvaluateWinner(tallyOne, tallyTwo, playerOneName, playerTwoName);                                   
+            EvaluateWinner(tallyOne, tallyTwo, playerOneName, playerTwoName);
         }
 
         public void RoundTwo(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)

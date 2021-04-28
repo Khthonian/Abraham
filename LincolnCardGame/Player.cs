@@ -18,7 +18,7 @@
 
         public void PlayerLose()
         {
-            playerTurn = false;            
+            playerTurn = false;
         }
     }
 }

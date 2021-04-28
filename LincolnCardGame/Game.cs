@@ -17,7 +17,7 @@ namespace LincolnCardGame
             playerTwoName = Console.ReadLine();
 
             // Begin the game
-            Console.WriteLine("\nLet's begin play\n");            
+            Console.WriteLine("\nLet's begin play\n");
             PvP.FiveRoundsPvP(playerOneHand, playerTwoHand, playerOneName, playerTwoName);
         }
 
