@@ -179,7 +179,6 @@ namespace LincolnCardGame
             int firstTallyOne = PlayerTally(firstVerifyOne);
             Console.WriteLine(abrahamName.ToUpper());
             string abeCardOne = AbrahamShuffle(abraham);
-            Console.WriteLine($"I give you the {abeCardOne}");
             int firstTallyTwo = PlayerTally(abeCardOne);
             Console.WriteLine();
             EvaluateWinner(firstTallyOne, firstTallyTwo, playerOneName, abrahamName);
@@ -195,7 +194,6 @@ namespace LincolnCardGame
             int secondTallyOne = PlayerTally(secondVerifyOne);
             Console.WriteLine(abrahamName.ToUpper());
             string abeCardTwo = AbrahamShuffle(abraham);
-            Console.WriteLine($"I give you the {abeCardTwo}");
             int secondTallyTwo = PlayerTally(abeCardTwo);
             Console.WriteLine();
             EvaluateWinner(secondTallyOne, secondTallyTwo, playerOneName, abrahamName);

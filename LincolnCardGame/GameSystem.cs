@@ -208,6 +208,7 @@ namespace LincolnCardGame
         {
             int abeShuffle = random.Next(abeHand.Count);
             string abeCard = abeHand[abeShuffle];
+            Console.WriteLine($"I choose the {abeCard}");
             return abeCard;
         }
     }
