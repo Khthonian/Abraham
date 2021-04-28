@@ -8,11 +8,11 @@ namespace LincolnCardGame
 
     {
         // Add random function, to be used later when shuffling
-        private readonly Random randomIndex = new Random();
+        private readonly Random randomIndex = new();
         // Create a string list of all the suits in a standard deck of 52 french-style playing cards
-        public List<string> Suits = new List<string> { "Diamonds", "Hearts", "Clubs", "Spades" };
+        public List<string> Suits = new() { "Diamonds", "Hearts", "Clubs", "Spades" };
         // Create a string list of all the ranks in a standard deck of 52 french style playing cards
-        public List<string> Ranks = new List<string> { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+        public List<string> Ranks = new() { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
 
         // Control the deck with an automatic property
         public Stack<Card> NewDeck { get; set; }
@@ -26,7 +26,7 @@ namespace LincolnCardGame
             {
                 foreach (string rank in Ranks)
                 {
-                    Card card = new Card
+                    Card card = new()
                     {
                         Suit = suit,
                         Rank = rank
@@ -84,7 +84,7 @@ namespace LincolnCardGame
                         break;
                     case "e":
                         Console.WriteLine("Thank you for using Abraham. Goodbye.");
-                        System.Environment.Exit(0);
+                        Environment.Exit(0);
                         break;
                     default:
                         break;
@@ -113,8 +113,10 @@ namespace LincolnCardGame
             Console.WriteLine("\nDeck Shuffled");
         }
 
-        protected List<string> Deal()
+        public List<string> Deal()
         {
+            // Loop through the stack of cards placing 10 cards into a list
+            // Return this list as a player's hand of cards
             var DealtCards = new List<string>();
             for (int i = 0; i < 10; i++)
             {

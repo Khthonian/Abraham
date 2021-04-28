@@ -8,7 +8,7 @@ namespace LincolnCardGame
 
         protected static int PlayerScore(string playedCard)
         {
-            // Evaluate the score for each individual card selected
+            // Create a method that will input the card and return an awarded score for that value
             int playerScore;
             switch (playedCard)
             {
@@ -113,6 +113,7 @@ namespace LincolnCardGame
 
         protected void DrawnRound()
         {
+            // Create a method that will aid in toggling on/off whether the previous round was a draw
             drawnRound = true;
         }
     }

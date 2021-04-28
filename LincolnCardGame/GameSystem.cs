@@ -6,12 +6,13 @@ namespace LincolnCardGame
     public class GameSystem : Rules
     {
         // Initialise the classes for storing scores
-        protected Player playerOneID = new Player();
-        protected Player playerTwoID = new Player();
-        protected Random random = new Random();
+        protected Player playerOneID = new();
+        protected Player playerTwoID = new();
+        protected Random random = new();
 
         protected void EvaluateWinner(int playerOne, int playerTwo, string playerOneName, string playerTwoName)
         {
+            // Create a method that will determine who has won the round
             int highestScore = Math.Max(playerOne, playerTwo);
             if (drawnRound == true)
             {
@@ -94,6 +95,7 @@ namespace LincolnCardGame
 
         protected void CheckGameWinner(string playerOne, string playerTwo)
         {
+            // Create a method that will determine whether a player has won the game
             if (playerOneID.playerWins == 3)
             {
                 Console.WriteLine($"{playerOne.ToUpper()} HAS WON THE GAME!");
@@ -187,18 +189,21 @@ namespace LincolnCardGame
 
         protected static int PlayerTally(string cardOne, string cardTwo)
         {
+            // Create a method that will tally up the card values
             int tally = PlayerScore(cardOne) + PlayerScore(cardTwo);
             return tally;
         }
 
         protected static int PlayerTally(string card)
         {
+            // Create a method that will return the card value
             int tally = PlayerScore(card);
             return tally;
         }
 
         protected static void DisplayHand(List<string> playerHand, string playerName)
         {
+            // Create a method that shows the current cards in the hand
             Console.WriteLine($"\n{playerName}, here are your cards:");
             foreach (string p in playerHand)
             {
@@ -209,6 +214,7 @@ namespace LincolnCardGame
 
         protected string AbrahamShuffle(List<string> abeHand)
         {
+            // Create a method that handles Abraham's card selection
             int abeShuffle = random.Next(abeHand.Count);
             string abeCard = abeHand[abeShuffle];
             Console.WriteLine($"I choose the {abeCard}");

@@ -5,9 +5,10 @@ namespace LincolnCardGame
 {
     public class Game
     {
-        public void InitiateGamePvP(List<string> playerOneHand, List<string> playerTwoHand)
+        public static void InitiateGamePvP(List<string> playerOneHand, List<string> playerTwoHand)
         {
-            RoundStructurePvP PvP = new RoundStructurePvP();
+            // Create a pass-through menu to initialise the PvP game
+            RoundStructurePvP PvP = new();
             // Ask the players for their names
             string playerOneName;
             string playerTwoName;
@@ -21,9 +22,10 @@ namespace LincolnCardGame
             PvP.FiveRoundsPvP(playerOneHand, playerTwoHand, playerOneName, playerTwoName);
         }
 
-        public void InitiateGamePvCPU(List<string> playerHand, List<string> abrahamHand)
+        public static void InitiateGamePvCPU(List<string> playerHand, List<string> abrahamHand)
         {
-            RoundStructurePvCPU PvCPU = new RoundStructurePvCPU();
+            // Create a pass-through menu to initialise the PvCPU game
+            RoundStructurePvCPU PvCPU = new();
             // Ask the players for their names
             string playerOneName;
             string playerTwoName = "Abraham - CPU";

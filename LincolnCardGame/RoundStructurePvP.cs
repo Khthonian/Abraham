@@ -7,10 +7,12 @@ namespace LincolnCardGame
     {
         public void FiveRoundsPvP(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
         {
+            // Create a method to cycle through each round
             RoundOne(playerOne, playerTwo, playerOneName, playerTwoName);
             RoundTwo(playerOne, playerTwo, playerOneName, playerTwoName);
             RoundThree(playerOne, playerTwo, playerOneName, playerTwoName);
             RoundFour(playerOne, playerTwo, playerOneName, playerTwoName);
+            RoundFive(playerOne, playerTwo, playerOneName, playerTwoName);
         }
 
         public void RoundOne(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
@@ -35,8 +37,10 @@ namespace LincolnCardGame
 
         public void RoundTwo(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
         {
+            // Check if the previous round was a draw to decide whether the rule has to be implemented
             if (drawnRound == true)
             {
+                // Check to see which players turn it is
                 if (playerOneID.playerTurn == true)
                 {
                     // Write out the structure for the second round
@@ -78,6 +82,7 @@ namespace LincolnCardGame
             }
             else if(drawnRound == false)
             {
+                // Check to see which players turn it is
                 if (playerOneID.playerTurn == true)
                 {
                     // Write out the structure for the second round
@@ -121,8 +126,10 @@ namespace LincolnCardGame
 
         public void RoundThree(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
         {
+            // Check if the previous round was a draw to decide whether the rule has to be implemented
             if (drawnRound == true)
             {
+                // Check to see which players turn it is
                 if (playerOneID.playerTurn == true)
                 {
                     // Write out the structure for the third round
@@ -164,6 +171,7 @@ namespace LincolnCardGame
             }
             else if (drawnRound == false)
             {
+                // Check to see which players turn it is
                 if (playerOneID.playerTurn == true)
                 {
                     // Write out the structure for the third round
@@ -207,9 +215,13 @@ namespace LincolnCardGame
 
         public void RoundFour(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
         {
+            // Check if there has been a winner
             CheckGameWinner(playerOneName, playerTwoName);
+
+            // Check if the previous round was a draw to decide whether the rule has to be implemented
             if (drawnRound == true)
             {
+                // Check to see which players turn it is
                 if (playerOneID.playerTurn == true)
                 {
                     // Write out the structure for the fourth round
@@ -251,6 +263,7 @@ namespace LincolnCardGame
             }
             else if (drawnRound == false)
             {
+                // Check to see which players turn it is
                 if (playerOneID.playerTurn == true)
                 {
                     // Write out the structure for the fourth round
@@ -294,7 +307,10 @@ namespace LincolnCardGame
 
         public void RoundFive(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
         {
+            // Check if there has been a winner
             CheckGameWinner(playerOneName, playerTwoName);
+
+            // Make the players aware that this is the final round and what the rules of this round are
             Console.WriteLine("LINCOLN - FINAL ROUND");
             Console.WriteLine();
             Console.WriteLine("As you have both won two rounds, I shall now draw a random card from each of your hands.\n" +
