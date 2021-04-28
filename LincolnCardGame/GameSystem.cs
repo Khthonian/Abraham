@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LincolnCardGame
 {
@@ -21,6 +18,11 @@ namespace LincolnCardGame
                 {
                     Console.WriteLine("DRAW");
                     DrawnRound();
+                    Console.WriteLine($"{playerOneName.ToUpper()}:");
+                    Console.WriteLine(playerOneID.playerWins);
+                    Console.WriteLine($"{playerTwoName.ToUpper()}:");
+                    Console.WriteLine(playerTwoID.playerWins);
+                    Console.WriteLine();
                 }
                 else if (highestScore == playerOne)
                 {
@@ -55,6 +57,11 @@ namespace LincolnCardGame
                 {
                     Console.WriteLine("DRAW");
                     DrawnRound();
+                    Console.WriteLine($"{playerOneName.ToUpper()}:");
+                    Console.WriteLine(playerOneID.playerWins);
+                    Console.WriteLine($"{playerTwoName.ToUpper()}:");
+                    Console.WriteLine(playerTwoID.playerWins);
+                    Console.WriteLine();
                 }
                 else if (highestScore == playerOne)
                 {
@@ -135,26 +142,34 @@ namespace LincolnCardGame
         public static string CardRequest(List<string> playerHand)
         {
             // Ask the user to input a card they would like to use
-            Console.WriteLine("Please enter your chosen card: ");
-            string chosen = Console.ReadLine();
-            CardVerification(chosen, playerHand);
-            playerHand.Remove(chosen);
-            return chosen;
-        }
+            Console.Write("Please enter your chosen card: ");
+            string card = Console.ReadLine();
+            bool valid = false;
 
-        public static void CardVerification(string card, List<string> cardList)
-        {
-            // Verify that the card is in the list
-            if (!cardList.Contains(card))
+            // Begin verification
+            while (valid == false)
             {
-                Console.WriteLine("Invalid card");
-                Console.WriteLine();
+                // Verify the input isn't empty or null
+                while (string.IsNullOrEmpty(card))
+                {
+                    Console.WriteLine("You must enter a card name.");
+                    card = Console.ReadLine();
+                }
+
+                // Verify that the card is in the list
+                while (!playerHand.Contains(card))
+                {
+                    Console.WriteLine("Invalid card");
+                    Console.WriteLine();
+                    CardRequest(playerHand);
+                }
+                valid = true;
             }
-            else
-            {
-                Console.WriteLine("Valid card");
-                Console.WriteLine();
-            }
+
+            Console.WriteLine("Valid card");
+            Console.WriteLine();
+            playerHand.Remove(card);
+            return card;
         }
 
         public static int PlayerTally(string cardOne, string cardTwo)

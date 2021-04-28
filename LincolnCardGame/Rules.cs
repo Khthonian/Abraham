@@ -105,7 +105,7 @@ namespace LincolnCardGame
                     break;
                 default:
                     playerScore = 1;
-                    Console.WriteLine("You have entered a false value and shall suffer a 1 point penalty");
+                    Console.WriteLine("You have entered a false value and shall suffer a 0 point penalty");
                     break;                
             }
             return playerScore;            
