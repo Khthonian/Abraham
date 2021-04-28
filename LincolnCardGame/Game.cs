@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 namespace LincolnCardGame
 {
-    public class Game : RoundStructure
+    public class Game
     {
-        public void InitiateGame(List<string> playerOneHand, List<string> playerTwoHand)
+        public void InitiateGamePvP(List<string> playerOneHand, List<string> playerTwoHand)
         {
+            RoundStructurePvP PvP = new RoundStructurePvP();
             // Ask the players for their names
             string playerOneName;
             string playerTwoName;
@@ -17,16 +18,21 @@ namespace LincolnCardGame
 
             // Begin the game
             Console.WriteLine("\nLet's begin play\n");            
-            FiveRounds(playerOneHand, playerTwoHand, playerOneName, playerTwoName);
-
+            PvP.FiveRoundsPvP(playerOneHand, playerTwoHand, playerOneName, playerTwoName);
         }
 
-        public void FiveRounds(List<string> playerOne, List<string> playerTwo, string playerOneName, string playerTwoName)
+        public void InitiateGamePvCPU(List<string> playerHand, List<string> abrahamHand)
         {
-            RoundOne(playerOne, playerTwo, playerOneName, playerTwoName);
-            RoundTwo(playerOne, playerTwo, playerOneName, playerTwoName);
-            RoundThree(playerOne, playerTwo, playerOneName, playerTwoName);
-            RoundFour(playerOne, playerTwo, playerOneName, playerTwoName);
+            RoundStructurePvCPU PvCPU = new RoundStructurePvCPU();
+            // Ask the players for their names
+            string playerOneName;
+            string playerTwoName = "Abraham - CPU";
+            Console.WriteLine("\nPLAYER 1, what is your name");
+            playerOneName = Console.ReadLine();
+
+            // Begin the game
+            Console.WriteLine("\nLet's begin play\n");
+            PvCPU.FiveRoundsPvCPU(playerHand, abrahamHand, playerOneName, playerTwoName);
         }
     }
 }

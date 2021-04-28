@@ -203,5 +203,12 @@ namespace LincolnCardGame
                 Console.WriteLine();
             }
         }
+
+        public string AbrahamShuffle(List<string> abeHand)
+        {
+            int abeShuffle = random.Next(abeHand.Count);
+            string abeCard = abeHand[abeShuffle];
+            return abeCard;
+        }
     }
 }

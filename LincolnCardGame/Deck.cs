@@ -8,7 +8,7 @@ namespace LincolnCardGame
 
     {
         // Add random function, to be used later when shuffling
-        private readonly Random random = new Random();
+        private readonly Random randomIndex = new Random();
         // Create a string list of all the suits in a standard deck of 52 french-style playing cards
         public List<string> Suits = new List<string> { "Diamonds", "Hearts", "Clubs", "Spades" };
         // Create a string list of all the ranks in a standard deck of 52 french style playing cards
@@ -43,15 +43,19 @@ namespace LincolnCardGame
             // Check to see whether the stack is empty or not
             while (IsEmpty() != true)
             {
-                Console.WriteLine("Press ENTER to begin the game\nS to Shuffle ~ E to exit\nPress ENTER to confirm");
+                Console.WriteLine("PLEASE INPUT:\nP to begin the game against a player ~ A to begin the game against Abraham\nS to Shuffle ~ E to exit\nPress ENTER to confirm");
                 // Create a switch menu to handle in-game progression
                 switch (Console.ReadLine().ToLower())
                 {
-                    case "":
-                        Game PvP = new Game();
+                    case "p":
                         List<string> playerOneHand = Deal();
                         List<string> playerTwoHand = Deal();
-                        PvP.InitiateGame(playerOneHand, playerTwoHand);
+                        InitiateGamePvP(playerOneHand, playerTwoHand);
+                        break;
+                    case "a":
+                        List<string> playerHand = Deal();
+                        List<string> abrahamHand = Deal();
+                        InitiateGamePvCPU(playerHand, abrahamHand);
                         break;
                     case "s":
                         Shuffle();
@@ -100,7 +104,7 @@ namespace LincolnCardGame
             {
                 // Shuffle the list by picking a random available index
                 n--;
-                int randomItem = random.Next(n + 1);
+                int randomItem = randomIndex.Next(n + 1);
                 Card value = list[randomItem];
                 list[randomItem] = list[n];
                 list[n] = value;
