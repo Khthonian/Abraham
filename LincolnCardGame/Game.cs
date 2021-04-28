@@ -39,6 +39,7 @@ namespace LincolnCardGame
         {
             RoundOne(playerOne, playerTwo, playerOneName, playerTwoName);
             RoundTwo(playerOne, playerTwo, playerOneName, playerTwoName);
+            RoundThree(playerOne, playerTwo, playerOneName, playerTwoName);
         }
     }
 }
