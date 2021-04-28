@@ -5,7 +5,6 @@ using System.Linq;
 namespace LincolnCardGame
 {
     public class Deck : Game
-
     {
         // Add random function, to be used later when shuffling
         private readonly Random randomIndex = new();

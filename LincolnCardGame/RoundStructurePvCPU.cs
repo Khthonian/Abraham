@@ -11,6 +11,7 @@ namespace LincolnCardGame
             RoundTwo(playerOne, abraham, playerOneName, abrahamName);
             RoundThree(playerOne, abraham, playerOneName, abrahamName);
             RoundFour(playerOne, abraham, playerOneName, abrahamName);
+            RoundFive(playerOne, abraham, playerOneName, abrahamName);
         }
 
         public void RoundOne(List<string> playerOne, List<string> abraham, string playerOneName, string abrahamName)
