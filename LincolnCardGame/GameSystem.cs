@@ -92,7 +92,7 @@ namespace LincolnCardGame
         }
 
 
-        public void CheckGameWinner(string playerOne, string playerTwo)
+        protected void CheckGameWinner(string playerOne, string playerTwo)
         {
             if (playerOneID.playerWins == 3)
             {
@@ -143,7 +143,7 @@ namespace LincolnCardGame
             }
         }
 
-        public static string CardRequest(List<string> playerHand, string playerName)
+        protected static string CardRequest(List<string> playerHand, string playerName)
         {
             // Show the user their cards
             Console.WriteLine($"\n{playerName}, here are your cards:");
@@ -185,19 +185,19 @@ namespace LincolnCardGame
             return card;
         }
 
-        public static int PlayerTally(string cardOne, string cardTwo)
+        protected static int PlayerTally(string cardOne, string cardTwo)
         {
             int tally = PlayerScore(cardOne) + PlayerScore(cardTwo);
             return tally;
         }
 
-        public static int PlayerTally(string card)
+        protected static int PlayerTally(string card)
         {
             int tally = PlayerScore(card);
             return tally;
         }
 
-        public static void DisplayHand(List<string> playerHand, string playerName)
+        protected static void DisplayHand(List<string> playerHand, string playerName)
         {
             Console.WriteLine($"\n{playerName}, here are your cards:");
             foreach (string p in playerHand)
@@ -207,7 +207,7 @@ namespace LincolnCardGame
             }
         }
 
-        public string AbrahamShuffle(List<string> abeHand)
+        protected string AbrahamShuffle(List<string> abeHand)
         {
             int abeShuffle = random.Next(abeHand.Count);
             string abeCard = abeHand[abeShuffle];

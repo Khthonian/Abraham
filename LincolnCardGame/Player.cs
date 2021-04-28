@@ -3,7 +3,7 @@
     public class Player
     {
         public int playerWins;
-        public bool playerTurn;
+        public bool playerTurn = true;
         public void PlayerWin()
         {
             playerWins += 1;

@@ -4,7 +4,7 @@ namespace LincolnCardGame
 {
     public class Rules
     {
-        public bool drawnRound = false;
+        protected bool drawnRound = false;
 
         protected static int PlayerScore(string playedCard)
         {
@@ -111,7 +111,7 @@ namespace LincolnCardGame
             return playerScore;
         }
 
-        public void DrawnRound()
+        protected void DrawnRound()
         {
             drawnRound = true;
         }
