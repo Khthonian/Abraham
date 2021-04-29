@@ -17,7 +17,7 @@ namespace LincolnCardGame
                 switch (Console.ReadLine().ToLower())
                 {
                     case "":
-                        Console.WriteLine("RULES:\n" +
+                        Console.Write("RULES:\n" +
                             "Each player receives 10 cards.\n" +
                             "Each player plays 2 cards.\n" +
                             "The player with the highest total will win the hand, then will play first on the next round.\n" +

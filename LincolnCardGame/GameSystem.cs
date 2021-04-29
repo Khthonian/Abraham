@@ -156,7 +156,7 @@ namespace LincolnCardGame
             }
 
             // Ask the user to input a card they would like to use
-            Console.Write("Please enter your chosen card: ");
+            Console.WriteLine("Please enter your chosen card, in the same format: ");
             string card = Console.ReadLine();
             bool valid = false;
 
