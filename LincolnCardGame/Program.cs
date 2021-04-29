@@ -34,7 +34,7 @@ namespace LincolnCardGame
                         break;
                     case "e":
                         Console.WriteLine("Thanks for using Abraham, the Lincoln Card Game");
-                        System.Environment.Exit(0);
+                        Environment.Exit(0);
                         break;
                     default:
                         break;

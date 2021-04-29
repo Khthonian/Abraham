@@ -70,30 +70,6 @@ namespace LincolnCardGame
             }
         }
 
-        public bool IsEmpty()
-        {
-            // Check to see whether the stack contains any entities
-            if (NewDeck.Count == 0)
-            {
-                Console.WriteLine("The deck has been completely dealt.");
-                Console.WriteLine("\nDo you want me to restart or do you want to exit?\nPress ENTER to restart\nInput 'E' then ENTER to exit");
-                switch (Console.ReadLine().ToLower())
-                {
-                    case "":
-                        break;
-                    case "e":
-                        Console.WriteLine("Thank you for using Abraham. Goodbye.");
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        break;
-
-
-                }
-                return true;
-            }
-            return false;
-        }
         public void Shuffle()
         {
             // Convert the stack into a list in order to shuffle
