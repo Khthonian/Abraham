@@ -39,8 +39,6 @@ namespace LincolnCardGame
 
         public void AbrahamMenu()
         {
-            
-            
             Console.WriteLine("PLEASE INPUT:\nP to begin the game against a player ~ A to begin the game against Abraham\nS to Shuffle ~ E to exit\nPress ENTER to confirm");
             // Create a switch menu to handle in-game progression
             switch (Console.ReadLine().ToLower())
@@ -64,9 +62,7 @@ namespace LincolnCardGame
                     break;
                 default:
                     break;
-            }
-
-            
+            }            
         }
 
         public void Shuffle()
