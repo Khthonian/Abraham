@@ -39,30 +39,34 @@ namespace LincolnCardGame
 
         public void AbrahamMenu()
         {
-            Console.WriteLine("PLEASE INPUT:\nP to begin the game against a player ~ A to begin the game against Abraham\nS to Shuffle ~ E to exit\nPress ENTER to confirm");
-            // Create a switch menu to handle in-game progression
-            switch (Console.ReadLine().ToLower())
+            bool gameActive = true;
+            while (gameActive == true)
             {
-                case "p":
-                    List<string> playerOneHand = Deal();
-                    List<string> playerTwoHand = Deal();
-                    InitiateGamePvP(playerOneHand, playerTwoHand);
-                    break;
-                case "a":
-                    List<string> playerHand = Deal();
-                    List<string> abrahamHand = Deal();
-                    InitiateGamePvCPU(playerHand, abrahamHand);
-                    break;
-                case "s":
-                    Shuffle();
-                    break;
-                case "e":
-                    // Reset and create a fresh stack incase the player decides to play again
-                    NewDeck = new Stack<Card>();
-                    break;
-                default:
-                    break;
-            }            
+                Console.WriteLine("PLEASE INPUT:\nP to begin the game against a player ~ A to begin the game against Abraham\nS to Shuffle ~ E to exit\nPress ENTER to confirm\n");
+                // Create a switch menu to handle in-game progression
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "p":
+                        List<string> playerOneHand = Deal();
+                        List<string> playerTwoHand = Deal();
+                        InitiateGamePvP(playerOneHand, playerTwoHand);
+                        break;
+                    case "a":
+                        List<string> playerHand = Deal();
+                        List<string> abrahamHand = Deal();
+                        InitiateGamePvCPU(playerHand, abrahamHand);
+                        break;
+                    case "s":
+                        Shuffle();
+                        break;
+                    case "e":
+                        // Reset and create a fresh stack incase the player decides to play again
+                        NewDeck = new Stack<Card>();
+                        break;
+                    default:
+                        break;
+                }
+            }                       
         }
 
         public void Shuffle()

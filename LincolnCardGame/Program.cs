@@ -13,7 +13,7 @@ namespace LincolnCardGame
             {
                 // Welcome the user to the application
                 // I have called the application Abraham, after Abraham Lincoln
-                Console.WriteLine("Hello, I'm Abraham, the Lincoln Card Game\nPress ENTER to begin\nInput 'E' then ENTER to exit");
+                Console.WriteLine("Hello, I'm Abraham, the Lincoln Card Game\nPress ENTER to begin\nInput 'E' then ENTER to exit\n");
                 switch (Console.ReadLine().ToLower())
                 {
                     case "":
