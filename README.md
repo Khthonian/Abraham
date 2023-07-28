@@ -8,7 +8,7 @@ To run the program, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Make sure you have the latest version of the .NET SDK installed on your system.
-3. Open the project in your favorite C# development environment (e.g., Visual Studio, Visual Studio Code).
+3. Open the project in your favourite C# development environment (e.g., Visual Studio, Visual Studio Code).
 4. Build and run the application.
 
 Upon running the program, you will be greeted with a welcome message from Abraham, the Lincoln Card Game.
